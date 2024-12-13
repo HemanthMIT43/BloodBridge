@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Emergency Blood Request</title>
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-image: url("{{ url_for('static', filename='images/image1.jpeg') }}");
+            background-size: cover;  /* Make the background cover the full page */
+            background-position: center;  /* Center the background image */
+            background-repeat: no-repeat;  /* Prevent image repetition */
+            background-attachment: fixed;  /* Keep background fixed while scrolling */
+            height: 100vh;  /* Full viewport height */
+            padding: 20px;
+            margin: 0;
+            color: white;  /* Text color to contrast with the background */
+        }
+
+        .container {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #ff6666; /* Light Red */
+        }
+
+        .form-container {
+            margin-top: 40px;
+            background-color: rgba(255, 255, 255, 0.8);  /* Semi-transparent background */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Label styling with light black color */
+        label {
+            font-size: 18px;
+            margin-right: 10px;
+            color: #333333;  /* Light Black */
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            padding: 8px;
+            margin: 10px 0;
+            width: 300px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #ff6666;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #ff4040;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Emergency Blood Request</h1>
+
+        <!-- Form Section -->
+        <div class="form-container">
+            <form action="{{ url_for('emergency_request') }}" method="POST">
+                <label for="blood_type">Blood Type:</label>
+                <input type="text" id="blood_type" name="blood_type" required><br>
+
+                <label for="quantity">Quantity (in units):</label>
+                <input type="number" id="quantity" name="quantity" required><br>
+
+                <label for="requester_name">Requester Name:</label>
+                <input type="text" id="requester_name" name="requester_name" required><br>
+
+                <button type="submit">Submit Request</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

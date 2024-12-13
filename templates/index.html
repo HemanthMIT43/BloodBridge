@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>BloodBridge Home</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;600&display=swap');
+
+        body {
+            background-image: url("{{ url_for('static', filename='images/blood_image.jpeg') }}");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            height: 100vh;
+            margin: 0;
+            color: white;
+            font-family: 'Open Sans', sans-serif;
+            display: flex;
+            justify-content: center;  /* Centers content horizontally */
+            align-items: center;      /* Centers content vertically */
+        }
+
+        .content {
+            text-align: left;
+            padding: 20px;
+            max-width: 800px;  /* Set a max-width for better readability */
+        }
+
+        h1 {
+            font-size: 45px;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+            color: #ff6666;  /* Light Red */
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 20px;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 400;
+            margin-bottom: 30px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin-bottom: 10px;
+        }
+
+        nav ul li a {
+            color: rgb(0, 98, 255);  /* Changed to Cyan */
+            text-decoration: none;
+            font-weight: 600;
+            font-family: 'Roboto', sans-serif;
+            font-size: 20px;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>Welcome to the Blood Bank</h1>
+        <p>Request, donate, or manage blood donations here</p>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('emergency_request') }}">Emergency Blood Request</a></li>
+                <li><a href="{{ url_for('donor_dashboard') }}">Donor Management</a></li>
+                <li><a href="{{ url_for('inventory_update') }}">Inventory Update</a></li>
+            </ul>
+        </nav>
+    </div>
+</body>
+</html>
